@@ -50,20 +50,14 @@ def main():
     save_intermediate_step_path = "temp"
 
     if args.writersource is None:
-        assetdir = os.listdir('/Users/walterhome/Desktop/diffusion-handwriting-master/data/assets')
-        sourcename = '/Users/walterhome/Desktop/diffusion-handwriting-master/data/assets' + assetdir[np.random.randint(0, len(assetdir))]
+        assetdir = os.listdir('/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/data/assets')
+        sourcename = '/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/data/assets/tempImage6504SV.jpg.tif'
     else:
         # sourcename = "data/assets/r06-412z-04.tif"
         sourcename = args.writersource
 
     # Modify this line to point to your specific weights path
-    weights_path = "/Users/walterhome/Desktop/diffusion-handwriting-master/weights/best_best.pth"
-
-    # Load the model with map_location set to 'cpu'
-    model = torch.load(weights_path, map_location=torch.device('cpu'))
-
-    # Now use the model on your CPU...
-
+    weights_path = "/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/weights/best_best.pth"
 
     L = 60
     tokenizer = utils.Tokenizer()
@@ -82,7 +76,7 @@ def main():
 
     # Define model input
     text = torch.tensor([tokenizer.encode(text) + [1]])
-    style_vector = extract_style_from_file('/Users/walterhome/Desktop/diffusion-handwriting-master/data/assets/a03-050-23.tif')
+    style_vector = extract_style_from_file('/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/data/assets/tempImage6504SV.jpg.tif')
 
     L = len(beta_set)
     alpha_set = torch.cumprod(1 - beta_set, dim=0)
