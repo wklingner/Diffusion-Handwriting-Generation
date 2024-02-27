@@ -40,7 +40,6 @@ def main():
     parser.add_argument('--channels', help='number of channels at lowest resolution, only change \
                                                  this if loaded model was trained with that hyperparameter', default=128, type=int)
 
-    device = "cpu"
     args = parser.parse_args()
     time_steps = len(args.textstring) * 16 if args.seqlen is None else args.seqlen
     time_steps = time_steps - (time_steps % 8) + 8
