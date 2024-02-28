@@ -69,7 +69,7 @@ def main():
     C3 = C1 * 2
     show_every = None
 
-    model = nn.DiffusionWriter(num_layers=args.num_attlayers, c1=C1, c2=C2, c3=C3, device=device)
+    model = nn.DiffusionWriter(num_layers=args.num_attlayers, c1=C1, c2=C2, c3=C3)
     model.load_state_dict(torch.load(weights_path))
     model.eval()
 
