@@ -2,11 +2,11 @@ import tensorflow as tf
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
-import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.utils.py
-import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.nn.py
+import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.utils
+import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.nn
 import argparse
 import os
-import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.preprocessing.py
+import content.Diffusion-Handwriting-Generation.diffusion-handwriting-master.preprocessing
 from utils import standard_diffusion_step, new_diffusion_step, generate_stroke_image, pad_img
 
 def extract_style_from_file(path, style_extractor=None):
