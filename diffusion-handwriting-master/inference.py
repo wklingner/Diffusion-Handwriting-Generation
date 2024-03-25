@@ -69,7 +69,8 @@ def main():
     show_every = None
 
     model = nn.DiffusionWriter(num_layers=args.num_attlayers, c1=C1, c2=C2, c3=C3)
-    model.load_state_dict(torch.load(/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/weights/best_best.pth))
+    checkpoint = torch.load('/content/Diffusion-Handwriting-Generation/diffusion-handwriting-master/weights/best_best.pth')
+    model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
 
     # Define model input
