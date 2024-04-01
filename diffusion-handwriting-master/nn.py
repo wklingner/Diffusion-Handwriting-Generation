@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+import torch.nn as nn
 from tensorflow.keras import Model, Sequential
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.layers import (Dense, Conv1D, Embedding, UpSampling1D, AveragePooling1D,
@@ -227,7 +228,7 @@ class Text_Style_Encoder(Model):
         text_out = self.affine4(self.layernorm(self.text_ffn(text)), sigma)
         return text_out
 
-class DiffusionWriter(Model):
+class DiffusionWriter(nn.Module):
     def __init__(self, num_layers, c1, c2, c3, drop_rate=0.0):
         super().__init__()
         self.input_dense = Dense(c1)
